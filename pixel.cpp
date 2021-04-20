@@ -52,20 +52,21 @@ void Pixel::setGreen(int green) {
 		this->green = green;
 }
 
-int Pixel::getRed() const {
+int Pixel::getRed() {
 	return red;
 }
 
-int Pixel::getBlue() const {
+int Pixel::getBlue() {
 	return blue;
 }
 
-int Pixel::getGreen() const {
+int Pixel::getGreen() {
 	return green;
 }
 
 inline bool Pixel::isPixelValue(int val) {
-	return val >= 0 && val < 256;
+//	return val >= 0 && val < 256;
+	return true;
 }
 
 void Pixel::printPixelData() {
@@ -79,10 +80,4 @@ void Pixel::printPixelData() {
 
 int Pixel::getRGB() {
 	return (red << 16) + (green << 8) + (blue);
-}
-
-bool operator==(const Pixel& lhs, const Pixel& rhs) {
-	return lhs.getRed() == rhs.getRed() 
-		&& lhs.getBlue() == rhs.getBlue() 
-		&& lhs.getGreen() == rhs.getGreen();
 }

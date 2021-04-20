@@ -19,7 +19,7 @@ BitmapHandler::BitmapHandler(char const* fileName) {
 	this->fileName = fileName;
 	
 	fstream fs;
-	fs.open(fileName, fstream::in | fstream::out | fstream::binary);
+	fs.open(fileName, ios::in | ios::out | ios::binary);
 	if(fs.fail()) {
 		cerr << "File at: [" << fileName << "] does not exists.\n";
 		modeError = true;
@@ -56,7 +56,7 @@ int BitmapHandler::getWidth() {
 
 void BitmapHandler::parseBMP() {
 	fstream fs;
-	fs.open(fileName, fstream::in | fstream::out | fstream::binary);
+	fs.open(fileName, ios::in | ios::out | ios::binary);
 	if(fs.fail())
 		throw "parseBMP() failed: Missing target file.";
 	try {

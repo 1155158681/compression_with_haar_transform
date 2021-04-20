@@ -18,9 +18,9 @@ class Pixel {
 		void setBlue(int blue);
 		void setGreen(int green);
 		
-		int getRed() const;
-		int getBlue() const;
-		int getGreen() const;
+		int getRed();
+		int getBlue();
+		int getGreen();
 		
 		void printPixelData();
 		int getRGB();
@@ -28,7 +28,5 @@ class Pixel {
 		int red, green, blue;
 		inline bool isPixelValue(int val);
 };
-
-bool operator==(const Pixel& lhs, const Pixel& rhs);
 
 #endif

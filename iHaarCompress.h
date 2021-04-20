@@ -12,22 +12,29 @@
 
 class iHaarCompress {
 	public:
-		iHaarCompress(BitmapHandler* bmpHandler);
+//		iHaarCompress(BitmapHandler* bmpHandler);
+		iHaarCompress(char const* fileName);
 		~iHaarCompress();
 		int getImageHeight();
 		int getImageWidth();
 		
 		void updatePixel();
 		void exportCompressedBitmap(int maxIteration);
-		void exportCompressedBinary(int maxIteration);
-		void exportCompressedCodedBinary(int maxIteration);	// with Huffman Coding
+		void exportBinary(char const* fileName = "outputBinary.bin");
+		void exportCompressedBinary(int maxIteration, char const* fileName = "outputcompressedBinary.bin");
+		void exportCompressedCodedBinary(int maxIteration, char const* fileName = "outputCompressedCodedBinary.bin");
+		// with Huffman Coding
 		
 		void exportDecompressedBitmap(int maxIteration);
-		void exportDecompressedBinary(int maxIteration);
-		void exportDecompressedCodedBinary(int maxIteration);
+		void exportDecompressedBinary(int maxIteration, char const* fileName = "outputDecompressedBitmap.bin");
+		void exportDecompressedCodedBinary(int maxIteration, char const* fileName = "outputDecompressedCodedBinary.bin");
 		
 	private:
-		BitmapHandler* bmpHandler;
+		BitmapHandler bmpHandler;
+		char const* fileName;
+		int height, width;
+		
+		void initPixelMatrix();
 		
 		int** red_matrix;
 		int** blue_matrix;

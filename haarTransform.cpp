@@ -125,7 +125,7 @@ void mReverseHaarRecursiveTransform(int** matrix, int length, int width, int max
 }
 
 void mHaarNormalization(int** matrix, int length, int width, int maxIteration) {
-	if(maxIteration == 0)
+	if(maxIteration == 0 || length == 1 || width == 1)
 		return;
 	maxIteration--;
 	
@@ -137,14 +137,14 @@ void mHaarNormalization(int** matrix, int length, int width, int maxIteration) {
 	for(int i = 0; i < length; i++)
 		for(int j = 0; j < width; j++)
 			if(matrix[i][j] < 0)
-				matrix[i][j] = 0;
+				matrix[i][j] /= 4; ////////
 			else
 				matrix[i][j] /= 4;
 }
 
 
 void mHaarDenormalization(int** matrix, int length, int width, int maxIteration) {
-	if(maxIteration == 0)
+	if(maxIteration == 0 || length == 1 || width == 1)
 		return;
 	maxIteration--;
 	
